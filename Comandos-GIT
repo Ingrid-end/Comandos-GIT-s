@@ -1,0 +1,96 @@
+git init = inicializar repósitorio;
+
+git status = mostra o estado do nosso repósitorio;
+
+  !descrição no terminal:
+- untracked files = indica que há arquivos não monitorados;
+
+  !informar quem vc é para o GIT armazenar corretamente os dados do autor de cada umas das alterações:
+
+git config --local user.name "seu nome"
+git config --local user.email "seu email"
+
+
+git add . = todos os arquivos sejam monitorados;
+git add nomeDoArquivo = so o arquivo seja monitorado;
+
+  !descrição no terminal:
+- changes to be commited : mudanças a serem commitadas, ou salvas, enviadas;
+
+git rm nomeDoArquivo = remover o arquivo e para que o mesmo pare de ser monitorado;
+
+  !o que é?
+- Commit : check point para indicar que houve mudanças, geralmente acompanha uma mensagem.
+
+git commit -m "mensagem"
+
+git log = mostrará um HASH do commit, uma identificação unica de cada commit;
+git log --online = todos os commits, cada um ocupa uma linha;
+git log -p - mais informações do commit, ate as alterações.
+
+  !Como determinar que um arquivo seja ignorado/ não monitorado?
+Existe um arquivo especial no GIT = .gitgnore,onde so escrevemos os arquivos que queremos ser ignorados.
+
+git add .gitgnore
+git add -m "mensagem" .gitgnore
+
+
+  !o que é repositório remoto?
+Um servidor local para onde enviamos as alterações.
+
+git init --bare = indica que é um repositório é PURO, que contem apenas as alterações dos arquivos, não uma copia fisica de cada um dos arquivos;
+
+git remote = são listados todos os repositórios remotos;
+
+git remote add local ondeOServidorEsta = para adicionar um repositório;
+
+git remote -v = garantir que o endereço esta correto;
+
+git clone = clonar um repositório remoto para o nosso repositório local pela primeira vez;
+
+git push local master = enviamos as alterações em nossa branch (master) para o repositório remoto;
+
+git pull local master = trazer os dados que estivere, no reposotório remoto;
+
+git branch = lista todos os branch;
+
+git branch nomeDoNovoBranch = fazer umo novo branch;
+
+git checkout branch = mudar de branch;
+
+git checkout -b nomeDoNovoBranch = atalho que cria um branch e ja passa para ele;
+
+git merge branch = unificar duas branchs, GIT cria um commit;
+
+git rebase branch = se base no branch.
+
+    !merge  x  rebase:
+O merge justa os trabalhos e gera um merge commit;
+O rebase aplica os commits de outros branch na branch atual.
+
+  !Conflitpos:
+<<< HEAD (currente change), estão os dados do commit atual, no master;
+>>> BRANCH (incomming change), são os dados adiciona-las, mas antes realizar commita-la.
+
+git reset = desfazer alterações depois de adicionar-las mas antes de commmita-las;
+
+git revert = desfazer alterações depois de adicionar-la e apos realizar o commit;
+
+git stash = salvar todos as alterações em um local temporario, sem necessidade de um commit ou de se gerar um commit para isto;
+
+git stash list = lista de tudo que estiver salvo;
+
+git stash apply = trazer os dados armazenados;
+
+git stash drop = remoção;
+
+    !GIT CHECKOUT!
+Serve para deixar a copia do codigo da nossa aplicação no estado que desejamos:
+  - git checkout branch = deixa o codigo no estado de uma branch;
+  - git checkout <hash> = deixa o codigo no estado do commit com aquele hash.
+  
+ git diff = exibir as modificações e que ainda não foi adicionado para commit;
+ 
+ git tag -a "comentario" = criar uma tag no seu codigo;
+ 
+ git push origin "comentario" = enviar esta tag para o GITHUB.
